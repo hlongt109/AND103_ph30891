@@ -1,0 +1,9 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.BaiTapBuoi2_ph30891" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+         <item name="colorPrimary">#000</item>
+    </style>
+
+    <style name="Theme.BaiTapBuoi2_ph30891" parent="Base.Theme.BaiTapBuoi2_ph30891" />
+</resources>
