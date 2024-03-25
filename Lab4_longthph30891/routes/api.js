@@ -9,7 +9,7 @@ const Fruits = require('../models/fruits')
 router.post('/add-distributor', async (req, res) => {
     try {
         const data = req.body; // lay du lieu tu body
-        const newDistributor = new Distributors({
+        const newDistributor = new Di stributors({
             name: data.name
         }); // tao moi doi tuong moi
 

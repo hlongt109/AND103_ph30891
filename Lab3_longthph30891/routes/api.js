@@ -272,5 +272,8 @@ router.post('/register-send-email', Upload.single('avatar'), async(req, res) =>{
     } catch (error) {
         console.log(error);
     }
-})
+});
+
+// demo retrofit
+
 module.exports = router;
