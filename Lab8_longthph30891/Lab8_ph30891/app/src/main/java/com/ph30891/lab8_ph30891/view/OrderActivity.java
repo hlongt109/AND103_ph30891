@@ -22,6 +22,7 @@ import com.ph30891.lab8_ph30891.model.GHNOrderResponse;
 import com.ph30891.lab8_ph30891.model.Order;
 import com.ph30891.lab8_ph30891.model.Province;
 import com.ph30891.lab8_ph30891.model.ResponseGHN;
+import com.ph30891.lab8_ph30891.model.ResponseOrder;
 import com.ph30891.lab8_ph30891.model.Ward;
 import com.ph30891.lab8_ph30891.networking.GHNRequest;
 import com.ph30891.lab8_ph30891.networking.HttpRequest;
@@ -178,7 +179,7 @@ public class OrderActivity extends AppCompatActivity {
                     Toast.makeText(OrderActivity.this, "Đặt hàng thành công", Toast.LENGTH_SHORT).show();
                     Order order = new Order();
                     order.setOrder_code(response.body().getData().getOrder_code());
-                    order.setId_user("abc1");
+                    order.setId_user("65f7b54c7c1be739c8a2b001");
                     httpRequest = new HttpRequest();
                     httpRequest.callApi().order(order).enqueue(responseOederDatabase);
                 }
@@ -190,11 +191,11 @@ public class OrderActivity extends AppCompatActivity {
             Log.e("Order error", "onFailure: "+t.getMessage());
         }
     };
-   Callback<Response<com.ph30891.lab8_ph30891.model.Response<Order>>> responseOederDatabase = new Callback<Response<com.ph30891.lab8_ph30891.model.Response<Order>>>() {
+   Callback<ResponseOrder<Order>> responseOederDatabase = new Callback<ResponseOrder<Order>>() {
        @Override
-       public void onResponse(Call<Response<com.ph30891.lab8_ph30891.model.Response<Order>>> call, Response<Response<com.ph30891.lab8_ph30891.model.Response<Order>>> response) {
+       public void onResponse(Call<ResponseOrder<Order>> call, Response<ResponseOrder<Order>> response) {
            if(response.isSuccessful()){
-               if(response.body() != null){
+               if(response.body().getStatus() == 200){
                    Toast.makeText(OrderActivity.this, "Cam on da mua hang", Toast.LENGTH_SHORT).show();
                    finish();
                }
@@ -202,8 +203,8 @@ public class OrderActivity extends AppCompatActivity {
        }
 
        @Override
-       public void onFailure(Call<Response<com.ph30891.lab8_ph30891.model.Response<Order>>> call, Throwable t) {
-           Log.e("Order data error", "onFailure: "+t.getMessage());
+       public void onFailure(Call<ResponseOrder<Order>> call, Throwable t) {
+
        }
    };
 }

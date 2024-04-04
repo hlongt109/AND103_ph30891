@@ -8,6 +8,7 @@
         android:layout_height="wrap_content"
         app:cardUseCompatPadding="true"
         app:cardCornerRadius="10dp"
+        android:backgroundTint="#FFD2C4"
         android:layout_margin="10dp">
         <RelativeLayout
             android:layout_width="wrap_content"
